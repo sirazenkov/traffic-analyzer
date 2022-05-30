@@ -1,0 +1,173 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Mon May 30 11:40:55 2022
+| Host         : DESKTOP-0KDN2IG running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file extract_traffic_attributes_control_sets_placed.rpt
+| Design       : extract_traffic_attributes
+| Device       : xc7z020
+-------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    95 |
+|    Minimum number of control sets                        |    95 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   132 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    95 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |    15 |
+| >= 6 to < 8        |     4 |
+| >= 8 to < 10       |    60 |
+| >= 10 to < 12      |     4 |
+| >= 12 to < 14      |     4 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     6 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             464 |          123 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              64 |           17 |
+| Yes          | No                    | No                     |             785 |          206 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              67 |           23 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|          Clock Signal         |                                                          Enable Signal                                                          |                                       Set/Reset Signal                                       | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_udp_extract_udp_header/count_reg[3]                                               | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/data_valid_out_reg_0[0]      |                1 |              1 |         1.00 |
+|  i_phase90_shift/inst/clk_out |                                                                                                                                 |                                                                                              |                2 |              2 |         1.00 |
+|  clk125MHz_IBUF_BUFG          |                                                                                                                                 | i_main_design/i_tx_interface/i_tx_add_preamble/data_out_inferred__0/i__n_0                   |                1 |              4 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_udp_extract_udp_header/count[3]_i_1__5_n_0                                        | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/data_valid_out_reg_0[0]      |                1 |              4 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_tx_interface/i_tx_add_crc32/Q[0]                                                                                | i_main_design/i_arp_handler/i_arp_send_packet/SS[0]                                          |                1 |              4 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/sel                                                       | i_main_design/i_defragment_and_check_crc/SR[0]                                               |                2 |              4 |         2.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/header_len[5]_i_1_n_0                                                          |                                                                                              |                1 |              4 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_icmp_extract_icmp_header/count[3]_i_2__0_n_0                                                     | i_main_design/i_icmp_handler/i_ip_extract_header/data_valid_out_reg_0[0]                     |                1 |              4 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_version[3]_i_1_n_0                                                        |                                                                                              |                1 |              4 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/sel                                                                      | i_main_design/i_defragment_and_check_crc/SR[0]                                               |                1 |              4 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_tx_interface/i_tx_add_crc32/crc[31]_i_1_n_0                                                                     | i_main_design/i_icmp_handler/i_transport_commit_buffer/data_buffer_reg_11                    |                2 |              5 |         2.50 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_arp_handler/i_arp_tx_fifo/i_generic_fifo/memory_reg_0_i_2_n_0                                                   |                                                                                              |                2 |              5 |         2.50 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_arp_handler/i_arp_tx_fifo/i_generic_fifo/memory_reg_0_i_1_n_0                                                   |                                                                                              |                2 |              5 |         2.50 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_tx_interface/i_tx_arbiter/p_1_in_0                                                                              | i_main_design/i_tx_interface/i_tx_arbiter/count[0]                                           |                2 |              5 |         2.50 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_arp_handler/i_arp_send_packet/counter0                                                                          | i_main_design/i_arp_handler/i_arp_send_packet/counter[5]_i_1_n_0                             |                2 |              5 |         2.50 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_detect_speed_and_reassemble_bytes/E[0]                                                                          |                                                                                              |                2 |              5 |         2.50 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_detect_speed_and_reassemble_bytes/preamble_count[4]_i_2_n_0                                                     | i_main_design/i_detect_speed_and_reassemble_bytes/preamble_count[4]_i_1_n_0                  |                1 |              5 |         5.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_arp_handler/i_rx_arp/sel                                                                                        | i_main_design/i_arp_handler/i_rx_arp/clear                                                   |                2 |              6 |         3.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_icmp_build_reply/count[5]_i_2_n_0                                                                | i_main_design/i_icmp_handler/i_icmp_build_reply/count                                        |                2 |              6 |         3.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/count[6]_i_2__0_n_0                                             | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/SR[0]                  |                3 |              7 |         2.33 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/count[6]_i_2_n_0                                                               | i_main_design/i_icmp_handler/i_ethernet_extract_header/SR[0]                                 |                2 |              7 |         3.50 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/i_ip_dest_ip[31]_i_1__0_n_0                                     |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_udp_extract_udp_header/i_udp_length[15]                                           |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/i_ip_dest_ip[15]_i_1__0_n_0                                     |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/i_ip_length[15]_i_1__0_n_0                                      |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/i_ip_version[3]_i_1__0_n_0                                      |                                                                                              |                3 |              8 |         2.67 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/i_ip_protocol                                                   |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/i_ip_length[7]_i_1__0_n_0                                       |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_udp_extract_udp_header/i_udp_dst_port[7]                                          |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_udp_extract_udp_header/i_udp_src_port[7]                                          |                                                                                              |                3 |              8 |         2.67 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_udp_extract_udp_header/i_udp_dst_port[15]                                         |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_udp_extract_udp_header/i_udp_length[7]                                            |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_udp_extract_udp_header/i_udp_src_port[15]                                         |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/i_ether_dst_mac[0]                                        |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/ether_type[4]                                             |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/i_ether_dst_mac[10]                                       |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/i_ether_dst_mac[44]                                       |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/i_ether_dst_mac[38]                                       |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/i_ether_dst_mac[31]                                       |                                                                                              |                3 |              8 |         2.67 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/ether_type[11]                                            |                                                                                              |                3 |              8 |         2.67 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/i_ether_dst_mac[19]                                       |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_dest_ip[15]_i_1_n_0                                                       |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_dest_ip[7]_i_1_n_0                                                        |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_protocol                                                                  |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_dest_ip[31]_i_1_n_0                                                       |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_src_ip[23]_i_1_n_0                                                        |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_dest_ip[23]_i_1_n_0                                                       |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_length[7]_i_1_n_0                                                         |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_src_ip[31]_i_1_n_0                                                        |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_src_ip[7]_i_1_n_0                                                         |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_src_ip[15]_i_1_n_0                                                        |                                                                                              |                4 |              8 |         2.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ip_extract_header/i_ip_length[15]_i_1_n_0                                                        |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_icmp_extract_icmp_header/i_icmp_identifier[15]                                                   |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_icmp_extract_icmp_header/i_icmp_checksum[15]                                                     |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_icmp_extract_icmp_header/i_icmp_identifier[7]                                                    |                                                                                              |                3 |              8 |         2.67 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_icmp_extract_icmp_header/i_icmp_code                                                             |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_icmp_extract_icmp_header/i_icmp_checksum[7]                                                      |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_icmp_extract_icmp_header/i_icmp_sequence[15]                                                     |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_icmp_extract_icmp_header/i_icmp_sequence[7]                                                      |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_icmp_extract_icmp_header/i_icmp_type                                                             |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_arp_handler/i_arp_send_packet/packet_data[7]_i_1_n_0                                                            |                                                                                              |                5 |              8 |         1.60 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/i_ip_dest_ip[23]_i_1__0_n_0                                     |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          |                                                                                                                                 | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/data_out[7]_i_1__0_n_0 |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          |                                                                                                                                 | i_main_design/i_icmp_handler/i_icmp_extract_icmp_header/data_out[7]_i_1__1_n_0               |                3 |              8 |         2.67 |
+|  clk125MHz_IBUF_BUFG          |                                                                                                                                 | i_main_design/i_icmp_handler/i_ethernet_extract_header/data_out[7]_i_1_n_0                   |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/ether_type[11]                                                           |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_dst_mac[0]                                                       |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_dst_mac[10]                                                      |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/ether_type[4]                                                            |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_src_mac[7]                                                       |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_src_mac[31]                                                      |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_src_mac[39]                                                      |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_dst_mac[38]                                                      |                                                                                              |                1 |              8 |         8.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_src_mac[23]                                                      |                                                                                              |                4 |              8 |         2.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_src_mac[15]                                                      |                                                                                              |                4 |              8 |         2.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_dst_mac[44]                                                      |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_dst_mac[31]                                                      |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_dst_mac[19]                                                      |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/i_ip_dest_ip[7]_i_1__0_n_0                                      |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_fifo_rxclk_to_clk125MHz/i_dcfifo_10_bits_16_deep/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/E[0] |                                                                                              |                2 |              8 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_ethernet_extract_header/i_ether_src_mac[47]                                                      |                                                                                              |                2 |              9 |         4.50 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_defragment_and_check_crc/read_addr[10]_i_1_n_0                                                                  |                                                                                              |                2 |             11 |         5.50 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_transport_commit_buffer/committed_addr_0                                                         |                                                                                              |                4 |             11 |         2.75 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_transport_commit_buffer/write_addr__0                                                            |                                                                                              |                5 |             11 |         2.20 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_detect_speed_and_reassemble_bytes/i_output_data_enable_reg_0[0]                                                 |                                                                                              |                4 |             11 |         2.75 |
+|  clk125MHz_IBUF_BUFG          |                                                                                                                                 | i_main_design/i_udp_handler/i_udp_rx_packet/i_ethernet_extract_header/SR[0]                  |                4 |             12 |         3.00 |
+|  clk125MHz_IBUF_BUFG          |                                                                                                                                 | i_main_design/i_udp_handler/i_udp_rx_packet/i_ip_extract_header/data_valid_out_reg_0[0]      |                3 |             12 |         4.00 |
+|  clk125MHz_IBUF_BUFG          |                                                                                                                                 | i_main_design/i_icmp_handler/i_ethernet_extract_header/SR[0]                                 |                3 |             12 |         4.00 |
+|  eth_rxck_IBUF_BUFG           | i_fifo_rxclk_to_clk125MHz/i_dcfifo_10_bits_16_deep/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/E[0] |                                                                                              |                3 |             12 |         4.00 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_tx_interface/i_tx_add_crc32/crc[31]_i_1_n_0                                                                     |                                                                                              |               10 |             24 |         2.40 |
+|  clk125MHz_IBUF_BUFG          | i_reset_controller/sel                                                                                                          |                                                                                              |                7 |             25 |         3.57 |
+|  eth_rxck_IBUF_BUFG           |                                                                                                                                 |                                                                                              |                6 |             29 |         4.83 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_arp_handler/i_rx_arp/rd_ptr_reg[3]                                                                              |                                                                                              |               13 |             56 |         4.31 |
+|  clk125MHz_IBUF_BUFG          | i_main_design/i_icmp_handler/i_icmp_build_reply/h_ether_src_mac[47]_i_1_n_0                                                     |                                                                                              |               34 |            144 |         4.24 |
+|  clk125MHz_IBUF_BUFG          |                                                                                                                                 |                                                                                              |              115 |            468 |         4.07 |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+
+

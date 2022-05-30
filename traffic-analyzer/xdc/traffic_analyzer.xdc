@@ -1,0 +1,1 @@
+create_clock -name clk125MHz -period 8.000 -waveform {0.000 4.000} [get_ports clk125MHz]
