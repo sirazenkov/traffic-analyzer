@@ -1,6 +1,8 @@
+SET "rate=100"
+
 :loop
   SET "dst_ip=192.168.1.6"
-  set /a  "A=%RANDOM% & 0xFF", ^
+  SET /a  "A=%RANDOM% & 0xFF", ^
           "B=%RANDOM% & 0xFF", ^
           "C=%RANDOM% & 0xFF", ^
           "D=%RANDOM% & 0xFF"
@@ -17,5 +19,5 @@
   IF "%pick_protocol%"=="0" SET "protocol=--udp"
   IF "%pick_protocol%"=="1" SET "protocol=--tcp"
   
-  nping %protocol% -g %src_port% -p %dst_port% -S %src_ip% --dest-ip %dst_ip% --data-length %data_len%
+  nping %protocol% -g %src_port% -p %dst_port% -S %src_ip% --dest-ip %dst_ip% --data-length %data_len% --rate %rate% -v-4
 goto loop
